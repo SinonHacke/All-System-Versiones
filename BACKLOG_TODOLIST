@@ -1,0 +1,15 @@
+# Product Backlog – Library System
+
+## User Stories
+
+As a librarian, I want to add new books, so that users can borrow them.
+
+As a librarian, I want to remove books, so that outdated books are deleted.
+
+As a user, I want to search for books, so that I can find what I need.
+
+As a user, I want to borrow a book, so that I can read it.
+
+As a user, I want to return a book, so that it becomes available again.
+
+As an admin, I want to manage users, so that access is controlled.
