@@ -224,4 +224,3 @@ class TodoApp_Gui:
 
 
 TodoApp_Gui()
-#Temporary change to enable PR
