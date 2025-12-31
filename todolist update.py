@@ -1,64 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox, simpledialog
-import json
-import os
-
-DATA_FILE = "todo_data.json"
-
-
-def load_data():
-    if not os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "w") as f:
-            json.dump({"users": {}, "todo": {}}, f, indent=4)
-
-    with open(DATA_FILE, "r") as f:
-        data = json.load(f)
-
-    if "users" not in data:
-        data["users"] = {}
-    if "todo" not in data:
-        data["todo"] = {}
-
-    return data
-
-
-def save_data(data):
-    with open(DATA_FILE, "w") as f:
-        json.dump(data, f, indent=4)
-
-
-
-class TodoListBackend:
-    def __init__(self):
-        self.data = load_data()
-
-    # الأصلية
-    def get_user_tasks(self, user):
-        return self.data["todo"].get(user, [])
-
-    def add_new_task(self, user, title):
-        self.data["todo"].setdefault(user, [])
-        self.data["todo"][user].append({"title": title, "done": False})
-        save_data(self.data)
-
-    def toggle_task_status(self, user, idx):
-        self.data["todo"][user][idx]["done"] ^= True
-        save_data(self.data)
-
-    def delete_task(self, user, idx):
-        self.data["todo"][user].pop(idx)
-        save_data(self.data)
-
-    def get_tasks(self, user):
-        return self.get_user_tasks(user)
-
-    def add_task(self, user, title):
-        self.add_new_task(user, title)
-
-    def toggle_task(self, user, idx):
-        self.toggle_task_status(user, idx)
-
-
+from todo_backend import TodoListBackend
 
 class TodoApp_Gui:
     def __init__(self):
@@ -102,29 +44,27 @@ class TodoApp_Gui:
         ).pack(pady=5)
 
     def handle_login(self):
-        d = load_data()
-        if self.u.get() in d["users"] and d["users"][self.u.get()] == self.p.get():
-            self.current_user = self.u.get()
+        username = self.u.get().strip()
+        password = self.p.get().strip()
+        if self.backend.validate_login(username, password):
+            self.current_user = username
             self.todo_menu()
         else:
             messagebox.showerror("Error", "Wrong login")
 
     def handle_signup(self):
-        d = load_data()
         username = self.u.get().strip()
         password = self.p.get().strip()
 
-        if not username or not password:
+        if username == "" or password == "":
             messagebox.showerror("Error", "Enter username and password")
             return
 
-        if username in d["users"]:
+        ok = self.backend.create_user(username, password)
+        if ok:
+            messagebox.showinfo("Done", "Account created")
+        else:
             messagebox.showerror("Error", "Username exists")
-            return
-
-        d["users"][username] = password
-        save_data(d)
-        messagebox.showinfo("Done", "Account created")
 
     def todo_menu(self):
         self.clear()
@@ -177,8 +117,7 @@ class TodoApp_Gui:
         if not tasks:
             tk.Label(self.window, text="No tasks", bg=self.bg_color).pack()
         else:
-            tasks_sorted = sorted(tasks, key=lambda x: x["done"])
-            for i, t in enumerate(tasks_sorted):
+            for i, t in enumerate(tasks):
                 if t["done"]:
                     bg_color = "#d4edda"
                     fg_color = "#155724"
@@ -221,6 +160,5 @@ class TodoApp_Gui:
                 messagebox.showinfo("Done", "Task deleted")
             else:
                 messagebox.showerror("Error", "Invalid task number")
-
 
 TodoApp_Gui()
