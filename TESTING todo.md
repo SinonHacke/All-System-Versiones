@@ -13,7 +13,7 @@ The primary goals of this testing phase are:
 
 ---
 
-## 🧪 2. Testing Methodology & Types
+## Testing Methodology & Types
 The following testing types were applied to ensure comprehensive coverage:
 
 * **Black Box Testing:** Testing the application interface without looking at the internal code structure, focusing purely on inputs and outputs.
@@ -24,7 +24,7 @@ The following testing types were applied to ensure comprehensive coverage:
 
 ---
 
-## 📋 3. Test Cases (Ready for TestRail Import)
+ Test Cases (Ready for TestRail Import)
 
 | ID | Feature | Test Case Title | Steps | Expected Result | Priority |
 |:---|:---|:---|:---|:---|:---|
@@ -35,9 +35,13 @@ The following testing types were applied to ensure comprehensive coverage:
 | **TC-05** | Complete Task| **Mark as Completed** | 1. Locate an active task.<br>2. Click 'Mark Completed'. | Task status changes to 'Done' (visually checked/strikethrough). | High |
 | **TC-06** | View All | **Display All Tasks** | 1. Navigate to 'View All Tasks'. | All active and completed tasks are listed correctly. | Low |
 
----
+### Testing Summary (Short Version)
 
-## 🛠 4. Environment & Tools
-* **Test Management Tool:** [TestRail](https://www.gurock.com/testrail/)
-* **Version Control:** GitHub
-* **Design Reference:** Use Case Diagram (included in project documentation)
+This file contains the main tests for the ToDo System to ensure all features work correctly:  
+
+1. **Add, edit, delete tasks** – verify basic task management.  
+2. **Mark tasks as complete** – ensure completion status works.  
+3. **UI and display** – tasks appear correctly in the interface.  
+4. **Search and filter** – verify task searching and filtering.  
+5. **Data persistence** – tasks remain after page reloads.
+
