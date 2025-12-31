@@ -1,2 +1,6 @@
 Library-System-V1/
 attendance_library_data.json
+__pycache__/
+.pytest_cache/
+todo_data.json
+users.json
