@@ -1,0 +1,23 @@
+A)  What the Attendance System in that Project is
+
+The Attendance System in that project is a functional Python program — not just documentation. It contains actual code to:
+
+1- Let users log in
+2- Mark students as present or absent
+3- Prevent duplicate entries
+4- Edit attendance records
+5- Generate attendance reports
+6- Allow students to view their own attendance but block them from editing it
+
+These functionalities are reflected in the test cases document (AttendanceSystemTesting.md), which lists tests that were performed on the system and passed, such as logging in, marking attendance, preventing duplicates, and viewing reports. This implies that real code exists to support these features and that it was tested manually or automatically. 
+Mk9412017 Lab
+
+B)  Meaning of “Functional” Here
+
+When we say the Attendance System in the repo is functional, we mean:
+
+1- It contains actual executable code (a Python script) that implements logic
+2- It is not just a placeholder or design document
+3- You can run it (if you have Python and the required dependencies installed)
+
+So yes — the Attendance System in that repo is a working (functional) program, not merely a non‑functional document. The presence of test reports simply proves it was tested.
