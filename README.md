@@ -1,4 +1,4 @@
-# 🚀 All-System-Versiones
+#  All-System-Versiones
 
 **All-System-Versiones** is a modular ToDoList system project with version tracking, testing, CI/CD, and full documentation, organized for professional development and team collaboration.
 
