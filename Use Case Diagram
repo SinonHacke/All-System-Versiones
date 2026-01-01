@@ -1,0 +1,45 @@
+Diagram Used in the Project
+(Use Case Diagram)
+1- What is a Use Case Diagram?
+
+A Use Case Diagram is a type of UML (Unified Modeling Language) diagram used to:
+
+Represent system functionalities
+
+Show how users (actors) interact with the system
+
+Describe system behavior from the user’s perspective
+
+2- Diagram Used in This Project
+
+In this project, we used a Use Case Diagram to model:
+
+Attendance System
+
+Library System
+
+To-Do List System
+
+All systems were connected and included <<include>> and <<extend>> relationships.
+
+3- Actors
+
+Teacher / Staff
+
+Student
+
+Librarian
+
+User
+
+4- Relationships Used
+
+<<include>> → Mandatory functionality
+
+<<extend>> → Optional or conditional functionality
+
+Example:
+
+Mark Attendance <<include>> Login
+
+Edit Attendance <<extend>> View Attendance
